@@ -5,4 +5,9 @@
     <string name="d_tv_3">Address</string>
     <string name="d_b_1">Donate</string>
     <string name="d_tv_4">Expiry Date</string>
+    <string name="d_et_1">Name Of Medicine</string>
+    <string name="d_et_2">Quantity</string>
+    <string name="d_et_3">Address of Pickup</string>
+    <string name="d_et_4">MM</string>
+    <string name="d_et_5">YYYY</string>
 </resources>
