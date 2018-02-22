@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Firebase</string>
+    <string name="d_tv_1">"Name Of\nMedicine"</string>
+    <string name="d_tv_2">Quantity</string>
+    <string name="d_tv_3">Address</string>
+    <string name="d_b_1">Donate</string>
+    <string name="d_tv_4">Expiry Date</string>
+</resources>
