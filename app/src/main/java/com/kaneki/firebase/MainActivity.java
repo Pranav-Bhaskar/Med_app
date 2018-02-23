@@ -49,38 +49,47 @@ public class MainActivity extends AppCompatActivity {
                 d_s_1 = d_et_1.getText().toString().trim();
                 d_s_2 = d_et_3.getText().toString().trim();
 
-                d_i_1 = Integer.parseInt(d_et_2.getText().toString().trim());
-                d_i_2 = Integer.parseInt(d_et_4.getText().toString().trim());
-                d_i_3 = Integer.parseInt(d_et_5.getText().toString().trim());
 
-                if (!TextUtils.isEmpty(d_s_1)) {
+
+                if (TextUtils.isEmpty(d_s_1)) {
                     Toast.makeText(getApplicationContext(), "Enter medicine name", Toast.LENGTH_LONG).show();
                 }
 
-                else
-                    if(!TextUtils.isEmpty(d_et_2.getText().toString().trim()))
+                else{
+                    if(TextUtils.isEmpty(d_et_2.getText().toString().trim()))
                         Toast.makeText(getApplicationContext(), "Enter Quantity", Toast.LENGTH_LONG).show();
 
-                else
-                    if(!TextUtils.isEmpty(d_s_2))
-                        Toast.makeText(getApplicationContext(), "Enter Address", Toast.LENGTH_LONG).show();
+                    else{
+                        if(TextUtils.isEmpty(d_s_2))
+                            Toast.makeText(getApplicationContext(), "Enter Address", Toast.LENGTH_LONG).show();
 
-                else
-                    if(!TextUtils.isEmpty(d_et_4.getText().toString().trim()))
-                        Toast.makeText(getApplicationContext(), "Enter month of Expiry", Toast.LENGTH_LONG).show();
+                        else{
+                            if(TextUtils.isEmpty(d_et_4.getText().toString().trim()))
+                                Toast.makeText(getApplicationContext(), "Enter month of Expiry", Toast.LENGTH_LONG).show();
 
-                else
-                    if(!TextUtils.isEmpty(d_et_5.getText().toString().trim()))
-                        Toast.makeText(getApplicationContext(), "Enter Year of Expiry", Toast.LENGTH_LONG).show();
+                            else{
+                                if(TextUtils.isEmpty(d_et_5.getText().toString().trim()))
+                                    Toast.makeText(getApplicationContext(), "Enter Year of Expiry", Toast.LENGTH_LONG).show();
 
-                else {
+                                else {
 
-                    String id = databaseReference.push().getKey();
-                    d_d_1 = new Details(id, d_s_1, d_s_2, d_i_1, d_i_2, d_i_3);
-                    databaseReference.child(id).setValue(d_d_1);
+                                    d_i_1 = Integer.parseInt(d_et_2.getText().toString().trim());
+                                    d_i_2 = Integer.parseInt(d_et_4.getText().toString().trim());
+                                    d_i_3 = Integer.parseInt(d_et_5.getText().toString().trim());
 
-                    Toast.makeText(getApplicationContext(), "Donated", Toast.LENGTH_LONG).show();
+                                    String id = databaseReference.push().getKey();
+                                    d_d_1 = new Details(id, d_s_1, d_s_2, d_i_1, d_i_2, d_i_3);
+                                    databaseReference.child(id).setValue(d_d_1);
+
+                                    Toast.makeText(getApplicationContext(), "Donated", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                        }
+
+                    }
                 }
+
             }
         });
     }
