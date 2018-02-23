@@ -2,9 +2,11 @@ package com.kaneki.firebase;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class Activity extends AppCompatActivity {
@@ -26,12 +28,18 @@ public class Activity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                E=(EditText)findViewById(R.id.health_et_3);
-                double value = Double.parseDouble( E.getText().toString());
-                if (value < 100)
-                    setContentView(R.layout.fitdiabetes);
-                else
-                    setContentView(R.layout.diabetes);
+                E = (EditText) findViewById(R.id.health_et_3);
+                if (TextUtils.isEmpty(E.getText().toString()))
+                {
+                    Toast.makeText(getApplicationContext(), "Enter Sugar Level", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    double value = Double.parseDouble(E.getText().toString());
+                    if (value < 100)
+                        setContentView(R.layout.fitdiabetes);
+                    else
+                        setContentView(R.layout.diabetes);
+                }
             }
         });
 
@@ -45,7 +53,14 @@ public class Activity extends AppCompatActivity {
             public void onClick(View view) {
                 height=(EditText)findViewById(R.id.health_et_1);
                 weight=(EditText)findViewById(R.id.health_et_2);
+                if (TextUtils.isEmpty(height.getText().toString())){
+                    Toast.makeText(getApplicationContext(), "Enter Height", Toast.LENGTH_LONG).show();
+                }
+                else if(TextUtils.isEmpty(weight.getText().toString())){
+                    Toast.makeText(getApplicationContext(), "Enter Weight", Toast.LENGTH_LONG).show();
+                }
 
+                else{
                 double v = Double.parseDouble( height.getText().toString());
 
                 double z = Double.parseDouble( weight.getText().toString());
@@ -60,7 +75,7 @@ public class Activity extends AppCompatActivity {
                         setContentView(R.layout.fitbmi);
 
                 }
-
+                }
 
             }
         });
